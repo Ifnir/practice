@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
  
 Class User
 {
@@ -9,7 +9,7 @@ Class User
 
     }
     
-    public function hi()
+    public function index()
     {
         return "We got you covered";
     }

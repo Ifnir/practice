@@ -13,17 +13,10 @@
 
 require_once __DIR__.'/../vendor/autoload.php';
 
+use App\Models\User as User;
 
-
-echo lego();
- 
-$cm = new Cmautoload;
-echo $cm->classmap();
- 
-
-use App\User as User;
 $test = new User();
 
-echo $test->hi();
+echo $test->index();
 
 

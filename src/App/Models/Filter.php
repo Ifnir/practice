@@ -1,8 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use src\User;
+use src\Models\User;
 
 class Filter {
 

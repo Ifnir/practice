@@ -3,8 +3,6 @@
         "twig/twig": "^3.0"
     },
     "autoload": {
-        "files":["helpers/functions.php"],
-        "classmap": ["classmap"],
         "psr-4": {
             "App\\": "src/App"
         }
