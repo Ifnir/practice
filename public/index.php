@@ -13,10 +13,14 @@
 
 require_once __DIR__.'/../vendor/autoload.php';
 
-use App\Models\User as User;
+use App\Controller\HomeController;
 
-$test = new User();
+$test = new HomeController();
 
 echo $test->index();
+
+
+
+
 
 
