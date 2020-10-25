@@ -1,11 +1,11 @@
 <?php
 
-namespace config;
+namespace App\Utilities\BaseTemplate;
 
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
-class BaseTemplate
+Abstract class Template
 {
     private $loader;
 
