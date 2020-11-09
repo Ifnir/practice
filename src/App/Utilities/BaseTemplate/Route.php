@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Utilities\BaseTemplate;
-
 
 class Route
 {
@@ -10,26 +8,31 @@ class Route
     private static $pathNotFound = null;
     private static $methodNotAllowed = null;
 
-    public static function add($expression, $function, $method = 'get'){
-        array_push(self::$routes,Array(
+    public static function add($expression, $function, $method = 'get')
+    {
+        array_push(self::$routes, Array(
             'expression' => $expression,
             'function' => $function,
             'method' => $method
         ));
     }
 
-    public static function pathNotFound($function){
+    public static function pathNotFound($function)
+    {
         self::$pathNotFound = $function;
     }
 
-    public static function methodNotAllowed($function){
+    public static function methodNotAllowed($function)
+    {
         self::$methodNotAllowed = $function;
     }
 
-    public static function run($basepath = '/'){
-
+    // TODO: Make function to extract the variable in the URI
+    public static function run()
+    {
+        $basepath = '/';
         // Parse current url
-        $parsed_url = parse_url($_SERVER['REQUEST_URI']);//Parse Uri
+        $parsed_url = parse_url($_SERVER['REQUEST_URI']); //Parse Uri
 
         if(isset($parsed_url['path'])){
             $path = $parsed_url['path'];
@@ -49,20 +52,18 @@ class Route
             // If the method matches check the path
 
             // Add basepath to matching string
-            if($basepath!=''&&$basepath!='/'){
-                $route['expression'] = '('.$basepath.')'.$route['expression'];
+            if($basepath != '' && $basepath != '/'){
+                $route['expression'] = '('.$basepath.')' . $route['expression'];
             }
 
             // Add 'find string start' automatically
-            $route['expression'] = '^'.$route['expression'];
+            $route['expression'] = '^' . $route['expression'];
 
             // Add 'find string end' automatically
-            $route['expression'] = $route['expression'].'$';
-
-            // echo $route['expression'].'<br/>';
+            $route['expression'] = $route['expression'] . '$';
 
             // Check path match
-            if(preg_match('#'.$route['expression'].'#',$path,$matches)){
+            if(preg_match('#' . $route['expression'] . '#', $path,$matches)){
 
                 $path_match_found = true;
 
@@ -71,10 +72,11 @@ class Route
 
                     array_shift($matches);// Always remove first element. This contains the whole string
 
-                    if($basepath!=''&&$basepath!='/'){
-                        array_shift($matches);// Remove basepath
+                    if($basepath != '' && $basepath != '/'){
+                        array_shift($matches); // Remove basepath
                     }
 
+                    // Calls the function from array in the Route::add
                     call_user_func_array($route['function'], $matches);
 
                     $route_match_found = true;
@@ -92,7 +94,7 @@ class Route
             if($path_match_found){
                 header("HTTP/1.0 405 Method Not Allowed");
                 if(self::$methodNotAllowed){
-                    call_user_func_array(self::$methodNotAllowed, Array($path,$method));
+                    call_user_func_array(self::$methodNotAllowed, Array($path, $method));
                 }
             }else{
                 header("HTTP/1.0 404 Not Found");
