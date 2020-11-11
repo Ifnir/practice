@@ -6,8 +6,16 @@ Route::add('/', function () {
     phpinfo();
 });
 
-Route::add('/test/:id',  function () {
+Route::add('/test',  function () {
+    echo 'test';
+}, 'get');
 
+Route::add('/id/@id',  function ($id) {
+    echo $id;
+}, 'get');
+
+Route::add('/t1/@id/t2/@name',  function ($id, $name) {
+    echo $id . ' ' . $name;
 }, 'get');
 
 // Add a 404 not found route

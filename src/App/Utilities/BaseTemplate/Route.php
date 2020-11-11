@@ -57,15 +57,24 @@ class Route
             }
             // change expression to find :id
             // Add 'find string start' automatically
-            $route['expression'] = '^' . $route['expression'];
 
-            // Add 'find string end' automatically
-            $route['expression'] = $route['expression'] . '$';
-            echo $route['expression'];
-            //echo $path;
-            // echo preg_match('#' . $route['expression'] . '#', $path,$matches);
+            $route['expression'] = preg_quote($route['expression'], '~');
+
+            $route['expression'] = preg_replace('/(?<!\\\\)\\\\\*/', '.*?', $route['expression']);
+
+            $route['expression'] = preg_replace_callback('%@([a-zA-Z]+)(\\\\:([^/]+))?%', function($data) {
+                $pattern = '[^/]+';
+                // next assign, find multiply, if there is more than 1 in uri
+                if(!empty($data[3])) {
+                    $pattern = stripslashes($data[3]);
+
+                }
+                return '(?P<' . $data[1] . '>' . $pattern . ')';
+            }, $route['expression']);
+
+            $route['expression'] = '^' . $route['expression'] . '$';
             // Check path match
-            if(preg_match('#' . $route['expression'] . '#', $path,$matches)){
+            if(preg_match( '#'.$route['expression'].'#', $path,$matches)){
 
                 $path_match_found = true;
 
@@ -107,5 +116,14 @@ class Route
 
         }
 
+    }
+
+    private function regex_callback($data) {
+        #echo '<pre>'.print_r($data, true).'</pre>';
+        $pattern = '[^/]+';
+        if(!empty($data[3])) {
+            $pattern = stripslashes($data[3]);
+        }
+        return '(?P<' . $data[1] . '>' . $pattern . ')';
     }
 }
