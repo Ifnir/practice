@@ -53,22 +53,17 @@ class Route
 
             // Add basepath to matching string
             if($basepath != '' && $basepath != '/'){
-                $route['expression'] = '('.$basepath.')' . $route['expression'];
+                $route['expression'] = $route['expression'];
             }
-            // change expression to find :id
             // Add 'find string start' automatically
+            $route['expression'] = preg_quote($route['expression'], '#');
 
-            $route['expression'] = preg_quote($route['expression'], '~');
-
-            $route['expression'] = preg_replace('/(?<!\\\\)\\\\\*/', '.*?', $route['expression']);
+            // start //test/id/@id then //test/id/@id/t2/@name -> maybe make a foreach to replace them all with call back?
+            echo $route['expression'] = preg_replace('/(?<!\\\\)\\\\\*/', '.*?', $route['expression']);
 
             $route['expression'] = preg_replace_callback('%@([a-zA-Z]+)(\\\\:([^/]+))?%', function($data) {
                 $pattern = '[^/]+';
-                // next assign, find multiply, if there is more than 1 in uri
-                if(!empty($data[3])) {
-                    $pattern = stripslashes($data[3]);
-
-                }
+                 // next assign, find multiply, if there is more than 1 in uri
                 return '(?P<' . $data[1] . '>' . $pattern . ')';
             }, $route['expression']);
 
