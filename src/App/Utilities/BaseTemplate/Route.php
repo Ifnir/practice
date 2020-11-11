@@ -59,7 +59,7 @@ class Route
             $route['expression'] = preg_quote($route['expression'], '#');
 
             // start //test/id/@id then //test/id/@id/t2/@name -> maybe make a foreach to replace them all with call back?
-            echo $route['expression'] = preg_replace('/(?<!\\\\)\\\\\*/', '.*?', $route['expression']);
+            $route['expression'] = preg_replace('/(?<!\\\\)\\\\\*/', '.*?', $route['expression']);
 
             $route['expression'] = preg_replace_callback('%@([a-zA-Z]+)(\\\\:([^/]+))?%', function($data) {
                 $pattern = '[^/]+';
@@ -68,8 +68,10 @@ class Route
             }, $route['expression']);
 
             $route['expression'] = '^' . $route['expression'] . '$';
+
             // Check path match
             if(preg_match( '#'.$route['expression'].'#', $path,$matches)){
+
 
                 $path_match_found = true;
 
@@ -77,7 +79,7 @@ class Route
                 if(strtolower($method) == strtolower($route['method'])){
 
                     array_shift($matches);// Always remove first element. This contains the whole string
-
+                    echo var_dump($matches['name']);
                     if($basepath != '' && $basepath != '/'){
                         array_shift($matches); // Remove basepath
                     }
