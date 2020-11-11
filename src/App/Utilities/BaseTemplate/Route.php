@@ -55,13 +55,15 @@ class Route
             if($basepath != '' && $basepath != '/'){
                 $route['expression'] = '('.$basepath.')' . $route['expression'];
             }
-
+            // change expression to find :id
             // Add 'find string start' automatically
             $route['expression'] = '^' . $route['expression'];
 
             // Add 'find string end' automatically
             $route['expression'] = $route['expression'] . '$';
-
+            echo $route['expression'];
+            //echo $path;
+            // echo preg_match('#' . $route['expression'] . '#', $path,$matches);
             // Check path match
             if(preg_match('#' . $route['expression'] . '#', $path,$matches)){
 
