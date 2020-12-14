@@ -18,6 +18,10 @@ Route::add('/t1/@id/t2/@name',  function ($id, $name) {
     echo $id . ' ' . $name;
 }, 'get');
 
+Route::add('/t1/@id/t2/@name/t3/@third',  function ($id, $name, $third) {
+    echo $id . ' ' . $name . ' ' . $third;
+}, 'get');
+
 // Add a 404 not found route
 Route::pathNotFound(function($path) {
     // Do not forget to send a status header back to the client

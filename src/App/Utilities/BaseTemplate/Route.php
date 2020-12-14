@@ -27,7 +27,6 @@ class Route
         self::$methodNotAllowed = $function;
     }
 
-    // TODO: Make function to extract the variable in the URI
     public static function run()
     {
         $basepath = '/';
@@ -55,36 +54,38 @@ class Route
             if($basepath != '' && $basepath != '/'){
                 $route['expression'] = $route['expression'];
             }
-            // Add 'find string start' automatically
-            $route['expression'] = preg_quote($route['expression'], '#');
 
-            // start //test/id/@id then //test/id/@id/t2/@name -> maybe make a foreach to replace them all with call back?
-            $route['expression'] = preg_replace('/(?<!\\\\)\\\\\*/', '.*?', $route['expression']);
+            $expression = preg_replace_callback('%@([a-zA-Z]+)(\\\\:([^/]+))?%', function($match)  {
 
-            $route['expression'] = preg_replace_callback('%@([a-zA-Z]+)(\\\\:([^/]+))?%', function($data) {
-                $pattern = '[^/]+';
+                $pattern = '([^/]+)';
+
+                var_dump($match[1]);
                  // next assign, find multiply, if there is more than 1 in uri
-                return '(?P<' . $data[1] . '>' . $pattern . ')';
+
+                 return '(?P<' . $match[1] . '>' . $pattern . ')';
+
             }, $route['expression']);
 
-            $route['expression'] = '^' . $route['expression'] . '$';
+            $route['expression'] = '^' . $expression . '$';
 
-            // Check path match
             if(preg_match( '#'.$route['expression'].'#', $path,$matches)){
-
-
-                $path_match_found = true;
 
                 // Check method match
                 if(strtolower($method) == strtolower($route['method'])){
 
                     array_shift($matches);// Always remove first element. This contains the whole string
-                    echo var_dump($matches['name']);
+
+
                     if($basepath != '' && $basepath != '/'){
                         array_shift($matches); // Remove basepath
                     }
 
-                    // Calls the function from array in the Route::add
+                    foreach ($matches as $key => $value) {
+                        if (is_int($key)) {
+                            unset($matches[$key]);
+                        }
+                    }
+
                     call_user_func_array($route['function'], $matches);
 
                     $route_match_found = true;
@@ -115,12 +116,4 @@ class Route
 
     }
 
-    private function regex_callback($data) {
-        #echo '<pre>'.print_r($data, true).'</pre>';
-        $pattern = '[^/]+';
-        if(!empty($data[3])) {
-            $pattern = stripslashes($data[3]);
-        }
-        return '(?P<' . $data[1] . '>' . $pattern . ')';
-    }
 }
