@@ -2,12 +2,22 @@
 
 use App\Utilities\BaseTemplate\Route as Route;
 
+use App\Log\Logger;
+
+$log = new Logger();
+
 Route::add('/', function () {
     phpinfo();
 });
 
 Route::add('/test',  function () {
     echo 'test';
+}, 'get');
+
+Route::add('/Log',  function () use ($log) {
+    echo $log->log('emergency','User {username} created', ['username' => 'bolivar']);
+
+    echo $log->log('emergency','One User created', []);
 }, 'get');
 
 Route::add('/id/@id',  function ($id) {

@@ -20,6 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51fe8870-cbea-4a77-b882-20f2a87221df" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/App/Log/AbstractLogger.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App/Log/InvalidArgumentException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App/Log/LogLevel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App/Log/Logger.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App/Log/LoggerAwareInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App/Log/LoggerAwareTrait.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App/Log/LoggerInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App/Log/LoggerTrait.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App/Log/NullLogger.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App/Routing/BasicRoute.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Routing/BasicRoute.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App/Utilities/BaseTemplate/Route.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Utilities/BaseTemplate/Route.php" afterDir="false" />
@@ -97,6 +106,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -139,7 +149,11 @@
       <workItem from="1606210282869" duration="615000" />
       <workItem from="1607722063906" duration="1902000" />
       <workItem from="1607797640933" duration="7131000" />
-      <workItem from="1607953973435" duration="839000" />
+      <workItem from="1607953973435" duration="2694000" />
+      <workItem from="1608022817355" duration="1045000" />
+      <workItem from="1609016087377" duration="7000" />
+      <workItem from="1612383446336" duration="4140000" />
+      <workItem from="1612456756289" duration="3870000" />
     </task>
     <servers />
   </component>
@@ -159,15 +173,23 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="481" y="197" key="NewPhpClassDialog" timestamp="1604686348609">
-      <screen x="0" y="23" width="1280" height="713" />
+    <state x="877" y="402" key="#com.intellij.ide.util.MemberChooser" timestamp="1612391629274">
+      <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="721" y="263" key="NewPhpClassDialog/-1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1603621351763" />
+    <state x="877" y="402" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1440/2560.0.1920.1080@0.0.2560.1440" timestamp="1612391629274" />
+    <state x="1010" y="475" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1612457415068">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="1010" y="475" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.2560.1440/2560.0.1920.1080@0.0.2560.1440" timestamp="1612457415068" />
+    <state x="962" y="351" key="NewPhpClassDialog" timestamp="1612457879847">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="962" y="351" key="NewPhpClassDialog/0.0.2560.1440/2560.0.1920.1080@0.0.2560.1440" timestamp="1612457879847" />
     <state x="481" y="197" key="NewPhpClassDialog/0.23.1280.713@0.23.1280.713" timestamp="1604686348609" />
-    <state x="794" y="463" key="NewPhpFileDialog" timestamp="1603567033093">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="907" y="643" key="NewPhpFileDialog" timestamp="1612391569615">
+      <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="794" y="463" key="NewPhpFileDialog/-1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1603567033093" />
+    <state x="907" y="643" key="NewPhpFileDialog/0.0.2560.1440/2560.0.1920.1080@0.0.2560.1440" timestamp="1612391569615" />
     <state x="141" y="23" width="997" height="713" key="SettingsEditor" timestamp="1604665980271">
       <screen x="0" y="23" width="1280" height="713" />
     </state>

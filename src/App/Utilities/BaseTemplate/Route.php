@@ -56,14 +56,8 @@ class Route
             }
 
             $expression = preg_replace_callback('%@([a-zA-Z]+)(\\\\:([^/]+))?%', function($match)  {
-
                 $pattern = '([^/]+)';
-
-                var_dump($match[1]);
-                 // next assign, find multiply, if there is more than 1 in uri
-
                  return '(?P<' . $match[1] . '>' . $pattern . ')';
-
             }, $route['expression']);
 
             $route['expression'] = '^' . $expression . '$';
@@ -75,7 +69,6 @@ class Route
 
                     array_shift($matches);// Always remove first element. This contains the whole string
 
-
                     if($basepath != '' && $basepath != '/'){
                         array_shift($matches); // Remove basepath
                     }
@@ -85,7 +78,7 @@ class Route
                             unset($matches[$key]);
                         }
                     }
-
+                    
                     call_user_func_array($route['function'], $matches);
 
                     $route_match_found = true;
