@@ -71,11 +71,9 @@ class Database implements QueryBuilderInterface
         return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    function select($table, array $fields)
+    function select($table, $fields)
     {
-        $fields ?? '*';
-
-        $this->stmt = $this->dbh->prepare('SELECT ' . $fields . ' FROM ' . $table);
+        $this->query('SELECT ' . $fields . ' FROM ' . $table);
     }
 
     public function where($row, $value)

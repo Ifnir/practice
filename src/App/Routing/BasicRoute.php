@@ -1,8 +1,11 @@
 <?php
 
 use App\Utilities\BaseTemplate\Route as Route;
+use App\ORM\Database;
 
 use App\Log\Logger;
+
+$db = new Database();
 
 $log = new Logger();
 
@@ -10,8 +13,12 @@ Route::add('/', function () {
     phpinfo();
 });
 
-Route::add('/test',  function () {
+Route::add('/test',  function () use ($db) {
     echo 'test';
+
+    $db->select('info', '*');
+    $rows = $db->result();
+    var_dump($rows);
 }, 'get');
 
 Route::add('/Log',  function () use ($log) {

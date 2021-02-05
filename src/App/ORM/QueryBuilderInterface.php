@@ -4,7 +4,7 @@ namespace App\ORM;
 
 interface QueryBuilderInterface
 {
-    public function select($table, array $fields);
+    public function select($table, $fields);
     public function where($row, $value);
     public function and($row, $value);
     public function or($row, $value);
