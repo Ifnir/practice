@@ -88,26 +88,31 @@ class Database
 
     public function and($row, $value) : self
     {
-        return ' AND ' . $row . ' = ' . $value;
+        $this->queryLine .= ' AND ' . $row . ' = ' . $value;
+        return $this;
     }
 
-    public function or($row, $value)
+    public function or($row, $value) : self
     {
-        return ' OR ' . $row . ' = ' . $value;
+        $this->queryLine .= ' OR ' . $row . ' = ' . $value;
+        return $this;
     }
 
-    public function whereNot($row, $value)
+    public function whereNot($row, $value) : self
     {
-        return ' WHERE NOT ' . $row . ' = ' . $value;
+        $this->queryLine .= ' WHERE NOT ' . $row . ' = ' . $value;
+        return $this;
     }
 
-    public function andNot($row, $value)
+    public function andNot($row, $value) : self
     {
-        return ' AND NOT ' . $row . ' = ' . $value;
+        $this->queryLine .= ' AND NOT ' . $row . ' = ' . $value;
+        return $this;
     }
 
-    public function orNot($row, $value)
+    public function orNot($row, $value) : self
     {
-        return ' OR NOT ' . $row . ' = ' . $value;
+        $this->queryLine .= ' OR NOT ' . $row . ' = ' . $value;
+        return $this;
     }
 }
