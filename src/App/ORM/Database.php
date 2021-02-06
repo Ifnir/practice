@@ -4,7 +4,7 @@ namespace App\ORM;
 
 use PDO;
 
-class Database implements QueryBuilderInterface
+class Database
 {
    private $hostname = 'localhost';
    private $username = 'root';
@@ -14,6 +14,8 @@ class Database implements QueryBuilderInterface
    private $dbh;
    private $error;
    private $stmt;
+
+   public $queryLine;
 
    public function __construct()
    {
@@ -32,9 +34,9 @@ class Database implements QueryBuilderInterface
        }
    }
 
-   public function query($query)
+   public function query()
    {
-       $this->stmt = $this->dbh->prepare($query);
+       $this->stmt = $this->dbh->prepare($this->queryLine);
    }
 
    public function bind($param, $value, $type = null)
@@ -67,21 +69,24 @@ class Database implements QueryBuilderInterface
 
     public function result()
     {
+        $this->query();
         $this->execute();
         return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    function select($table, $fields)
+    public function select($table, $fields) : self
     {
-        $this->query('SELECT ' . $fields . ' FROM ' . $table);
+        $this->queryLine = 'SELECT ' . $fields . ' FROM ' . $table;
+        return $this;
     }
 
-    public function where($row, $value)
+    public function where($row, $value) : self
     {
-        return ' WHERE ' . $row . ' = ' . $value;
+        $this->queryLine .=' WHERE ' . $row . ' = ' . $value;
+        return $this;
     }
 
-    public function and($row, $value)
+    public function and($row, $value) : self
     {
         return ' AND ' . $row . ' = ' . $value;
     }

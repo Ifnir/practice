@@ -22,7 +22,7 @@
     <list default="true" id="51fe8870-cbea-4a77-b882-20f2a87221df" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App/ORM/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/ORM/Database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App/ORM/QueryBuilderInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/ORM/QueryBuilderInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/ORM/QueryBuilderInterface.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App/Routing/BasicRoute.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Routing/BasicRoute.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

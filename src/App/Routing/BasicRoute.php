@@ -14,9 +14,9 @@ Route::add('/', function () {
 });
 
 Route::add('/test',  function () use ($db) {
-    echo 'test';
+    echo 'test<br>';
 
-    $db->select('info', '*');
+    $db->select('info', '*')->where('id', 1);
     $rows = $db->result();
     var_dump($rows);
 }, 'get');
