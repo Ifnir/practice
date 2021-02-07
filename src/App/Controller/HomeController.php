@@ -7,7 +7,8 @@ use App\Models\Filter;
 
 class HomeController extends Template
 {
-    public $test;
+    private $test;
+
     public function __construct()
     {
         parent::__construct();

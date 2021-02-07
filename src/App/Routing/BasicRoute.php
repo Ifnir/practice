@@ -9,8 +9,15 @@ $db = new Database();
 
 $log = new Logger();
 
+$hc = new \App\Controller\HomeController();
+
 Route::add('/', function () {
     phpinfo();
+});
+
+Route::add('/home', function () use ($hc)
+{
+    echo $hc->index();
 });
 
 Route::add('/test',  function () use ($db) {

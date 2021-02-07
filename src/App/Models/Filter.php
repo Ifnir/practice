@@ -2,13 +2,9 @@
 
 namespace App\Models;
 
-class Filter {
+class Filter extends Model
+{
 
-    public function __construct() 
-    {
-
-    }
-    
     public function GetData(User $class) {
         return $class->hi();
     }

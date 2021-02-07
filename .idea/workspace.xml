@@ -20,10 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51fe8870-cbea-4a77-b882-20f2a87221df" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/App/Models/Model.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App/ORM/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/ORM/Database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App/ORM/QueryBuilderInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/Models/Filter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Models/Filter.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App/Routing/BasicRoute.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Routing/BasicRoute.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/Utilities/BaseTemplate/Template.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Utilities/BaseTemplate/Template.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,11 +182,11 @@
     <state x="962" y="351" key="NewPhpClassDialog/0.0.2560.1440/2560.0.1920.1080@0.0.2560.1440" timestamp="1612457879847" />
     <state x="481" y="196" key="NewPhpClassDialog/0.23.1280.709@0.23.1280.709" timestamp="1612468409852" />
     <state x="481" y="197" key="NewPhpClassDialog/0.23.1280.713@0.23.1280.713" timestamp="1604686348609" />
-    <state x="454" y="340" key="NewPhpFileDialog" timestamp="1612469377848">
+    <state x="454" y="340" key="NewPhpFileDialog" timestamp="1612646979074">
       <screen x="0" y="23" width="1280" height="709" />
     </state>
     <state x="907" y="643" key="NewPhpFileDialog/0.0.2560.1440/2560.0.1920.1080@0.0.2560.1440" timestamp="1612391569615" />
-    <state x="454" y="340" key="NewPhpFileDialog/0.23.1280.709@0.23.1280.709" timestamp="1612469377848" />
+    <state x="454" y="340" key="NewPhpFileDialog/0.23.1280.709@0.23.1280.709" timestamp="1612646979074" />
     <state x="141" y="23" width="997" height="713" key="SettingsEditor" timestamp="1604665980271">
       <screen x="0" y="23" width="1280" height="713" />
     </state>
